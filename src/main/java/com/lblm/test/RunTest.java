@@ -1,9 +1,6 @@
-package com.test.thread;
+package com.lblm.test;
 
-import java.util.List;
-
-public class Exec implements Runnable {
-	@Override
+public class RunTest implements Runnable {
 	public void run() {
 		while (true) {
 			synchronized (TestQueues.queue) {
@@ -23,7 +20,7 @@ public class Exec implements Runnable {
 	}
 
 	public static void main(String[] args) throws InterruptedException {
-		Exec e = new Exec();
+		RunTest e = new RunTest();
 		for (int i = 0; i < 3; i++) {
 			new Thread(e).start(); // 开始执行时，队列为空，处于等待状态
 		}
@@ -32,7 +29,7 @@ public class Exec implements Runnable {
 		for (int i = 0; i < 20; i++) {
 			TestQueues.Task t = new TestQueues.Task("inovke:" + i);
 			TestQueues.add(t); // 执行该方法，激活所有对应队列，那两个线程就会开始执行啦
-			
+
 			Thread.sleep(1000);
 		}
 	}
