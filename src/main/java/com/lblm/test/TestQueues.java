@@ -27,7 +27,7 @@ public class TestQueues {
 
 		public void test() {
 			System.out.println(
-					name + " xxxxxxxxxxxxxxxxxxxxx 我被执行了:" + Thread.currentThread().getName());
+					name + " 分支提交，， 我被执行了:" + Thread.currentThread().getName());
 		}
 	}
 }
